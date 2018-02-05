@@ -5,7 +5,7 @@ SONMA API 文档
 
 使用 `SONMA API` 可以快速接入胜马云打印功能。
 
-如有任何对接疑问，请发邮件至 <openapi@sonma.com.cn>
+如有任何对接疑问，请发邮件至 [openapi@sonma.com.cn](mailto:openapi@sonma.com.cn)
 
 - [快速开始](quick_start/quick_start.md)
   - [对接流程](quick_start/quick_start.md?id=对接流程)
@@ -35,5 +35,4 @@ SONMA API 文档
   - [模板内容](template/template.md?id=模板内容)
   - [动态内容的编写](template/template.md?id=动态内容的编写)
   - [标记语言规范](template/template.md?id=标记语言规范)
-  - [80mm打印机模板说明](template/template.md?id=80mm打印机模板说明)
 - [更新日志](changelog/changelog.md)
