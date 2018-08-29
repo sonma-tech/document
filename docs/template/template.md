@@ -169,3 +169,66 @@ _开头的变量名都保留给系统使用，请不要在模板中定义_开头
     </page>
 ```
 
+# BIXOLON 110打印模板
+
+page根节点
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| width  |  dimension   |  打印区域宽度(最大可设置宽度为104mm) |
+| height |  dimension   |  打印区域高度 |
+| shift-x |	dimension |	x轴偏移量 |
+| shift-y |	dimension |	y轴偏移量 |
+
+text节点
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| width  |  dimension   |  打印区域宽度 |
+| x  |  dimension   |  当前打印位置距离页面横向距离 |
+| y  |  dimension   |  当前打印位置距离页面纵向距离 |
+| align  |  dimension   | 对齐方式  |
+| emphasized  |  boolean   | 是否加粗  |
+| doubleWidth  |  boolean   | 是否倍宽  |
+| doubleHeight  |  boolean   | 是否倍高  |
+
+line节点
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| x  |  dimension   |  横线起始x位置 |
+| y  |  dimension   |  横线起始y位置 |
+
+qrcode节点
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| x  |  dimension   |  当前打印位置距离页面横向距离 |
+| y  |  dimension   |  当前打印位置距离页面纵向距离 |
+| scale  |  dimension   |  打印二维码大小(1~9) |
+| align  |  dimension   |  对齐方式 |
+
+barcode
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| x  |  dimension   |  当前打印位置距离页面横向距离 |
+| y  |  dimension   |  当前打印位置距离页面纵向距离 |
+| type  |  dimension   |  条形码类型 |
+
+### 模板示例
+
+```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <page xmlns="http://template.sonma.net/schema" height="100" width="100">
+      <text  x="0" y="30" width="100" align="left">text 左</text>
+      <text  x="0" y="34" width="100" align="center">text 中</text>
+      <text  x="0" y="38" width="100" align="right">text 右</text>
+      <text  x="0" y="48" width="100" align="right" emphasized="true" double-width="true" double-height="true">text 加粗倍宽倍高</text>
+      <line x="0" y="52"/>
+      <qrcode x="0" y="56" scale="8" align="left">123456</qrcode>
+      <qrcode x="0" y="56" scale="8" align="center">123456</qrcode>
+      <qrcode x="0" y="56" scale="8" align="right">123456</qrcode>
+      <barcode x="0" y="60" type="code11">123456</barcode>
+    </page>
+```
