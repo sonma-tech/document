@@ -187,6 +187,7 @@
 | 换行  |  <BR>   |   |
 | 切纸  |  <CUT>   |   |
 | 二维码  |  <QRCODE>..</QRCODE>   |   |
+| 条形码  |  <BARCODE>..</BARCODE>   |   |
 
 ## 动态模板
 
