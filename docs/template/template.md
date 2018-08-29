@@ -54,11 +54,12 @@
 ---
 **重要**
 
-_开头的变量名都保留给系统使用，请不要在模板中定义_开头的变量名字。
+下划线(_)开头的变量名都保留给系统使用，请不要在模板中定义下划线(_)开头的变量名字。
+110mm打印机模板标签与80mm打印机模板标签不同.
 
 ---
 
-# 标记语言规范
+# 110mm打印机标记语言规范
 
  打印机支持的单位有:px, mm,如无特殊说明,默认单位都为mm,(200dpi的打印机1mm = 8 px),坐标系以左上角为起点（0,0), page 为根节点.
 
@@ -169,66 +170,53 @@ _开头的变量名都保留给系统使用，请不要在模板中定义_开头
     </page>
 ```
 
-# BIXOLON 110打印模板
+# 80mm打印机标记语言规范
 
-page根节点
+## 标签说明
 
-| 属性   |   类型      |     说明 |
+| 功能   |   标签格式      |     说明 |
 | ----------- |:---------------:| -----:|
-| width  |  dimension   |  打印区域宽度(最大可设置宽度为104mm) |
-| height |  dimension   |  打印区域高度 |
-| shift-x |	dimension |	x轴偏移量 |
-| shift-y |	dimension |	y轴偏移量 |
+| 加粗  |  <B>..</B>   |   |
+| 居中  |  <C>..</C>   |   |
+| 加宽  |  <W>..</W>   |   |
+| 加高  |  <L>..</L>   |   |
+| 居中加粗  |  <CB>..</CB>   |   |
+| 加粗大字  |  <DB>..</DB>   |   |
+| 居中加粗大字  |  <CDB>..</CDB>   |   |
+| 换行  |  <BR>   |   |
+| 切纸  |  <CUT>   |   |
+| 二维码  |  <QRCODE>..</QRCODE>   |   |
 
-text节点
+## 动态模板
 
-| 属性   |   类型      |     说明 |
-| ----------- |:---------------:| -----:|
-| width  |  dimension   |  打印区域宽度 |
-| x  |  dimension   |  当前打印位置距离页面横向距离 |
-| y  |  dimension   |  当前打印位置距离页面纵向距离 |
-| align  |  dimension   | 对齐方式  |
-| emphasized  |  boolean   | 是否加粗  |
-| doubleWidth  |  boolean   | 是否倍宽  |
-| doubleHeight  |  boolean   | 是否倍高  |
-
-line节点
-
-| 属性   |   类型      |     说明 |
-| ----------- |:---------------:| -----:|
-| x  |  dimension   |  横线起始x位置 |
-| y  |  dimension   |  横线起始y位置 |
-
-qrcode节点
-
-| 属性   |   类型      |     说明 |
-| ----------- |:---------------:| -----:|
-| x  |  dimension   |  当前打印位置距离页面横向距离 |
-| y  |  dimension   |  当前打印位置距离页面纵向距离 |
-| scale  |  dimension   |  打印二维码大小(1~9) |
-| align  |  dimension   |  对齐方式 |
-
-barcode
-
-| 属性   |   类型      |     说明 |
-| ----------- |:---------------:| -----:|
-| x  |  dimension   |  当前打印位置距离页面横向距离 |
-| y  |  dimension   |  当前打印位置距离页面纵向距离 |
-| type  |  dimension   |  条形码类型 |
-
-### 模板示例
+### 模板
 
 ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <page xmlns="http://template.sonma.net/schema" height="100" width="100">
-      <text  x="0" y="30" width="100" align="left">text 左</text>
-      <text  x="0" y="34" width="100" align="center">text 中</text>
-      <text  x="0" y="38" width="100" align="right">text 右</text>
-      <text  x="0" y="48" width="100" align="right" emphasized="true" double-width="true" double-height="true">text 加粗倍宽倍高</text>
-      <line x="0" y="52"/>
-      <qrcode x="0" y="56" scale="8" align="left">123456</qrcode>
-      <qrcode x="0" y="56" scale="8" align="center">123456</qrcode>
-      <qrcode x="0" y="56" scale="8" align="right">123456</qrcode>
-      <barcode x="0" y="60" type="code11">123456</barcode>
-    </page>
+    <CB><%=shopName%></CB><BR>
+    <C><%=shopAddress%></C><BR>
+    单号:<%=:orderNumber | left_align:18%> 时间:<%=date%><BR>
+    客户:<%=:customerName | left_align:18 %> 员工:<%=staffName%><BR>
+    ------------------------------------------------<BR>
+    <%=:'货号' | left_align:9 %><%=:'名称' | left_align:9 %><%=:'数量' | left_align:10 %><%=:'单价' | left_align:10 %><%=:'小计' | right_align:10 %><BR>
+    ------------------------------------------------<BR>
+    <% for(var item in order)
+        {%><%=:order[item].ref | left_align:9 %><%=:order[item].name | left_align:9 %><%=:order[item].num | left_align:10 %><%=:order[item].price | left_align:10 %><%=:order[item].total | right_align:10 %><BR><%}
+    %>
+    ------------------------------------------------<BR>
+    数量:                                       2<BR>
+    总计:                                       1000<BR>
+    ------------------------------------------------<BR>
+    <B>微信:500</B><BR><B>未付:500</B><BR>
+    ------------------------------------------------<BR>
+    农行卡：6228 4800 8207 8306 717<BR>
+    工行卡：6222 0236 0202 3368 921<BR>
+    户名：杭州胜马科技有限公司<BR>
+    温馨提示：如发现质量问题，凭此开单票据，本市的三天内，外地七日内调换，若人为损坏，开不退换！<BR>
+    ------------------------------------------------<BR>
+    单据打印时间:                   2016-07-13 13:34<BR>
+    ------------------------------------------------<BR>
+    技术支持(全国):0571-85353593           胜马科技<BR><BR>
+    <C><QRCODE>http://weixin.qq.com/r/Xo7WzpnEacQWrd2t99tM</QRCODE></C><BR><BR>
+    <CUT>
 ```
+
