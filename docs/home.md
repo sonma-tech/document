@@ -18,6 +18,7 @@ SONMA API 文档
 - [接口列表](api/api.md)
   - [开放接口](api/open_api/open_api.md)
     - [获取token](api/open_api/open_api.md?id=获取token)
+    - [绑定打印机](api/open_api/open_api.md?id=绑定打印机)
     - [吊销token](api/open_api/open_api.md?id=吊销token)
     - [烧写图片](api/open_api/open_api.md?id=烧写图片)
     - [获取打印机状态](api/open_api/open_api.md?id=获取打印机状态)
