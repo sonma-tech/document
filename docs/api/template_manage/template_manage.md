@@ -2,7 +2,7 @@
 
 ## 接口地址
 
-> POST /template
+> PUT /template
 
 ## 请求参数
 
