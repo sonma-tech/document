@@ -13,6 +13,57 @@
 
 ---
 
+# 用户登录
+
+## 接口地址
+
+> POST /session
+
+
+## 请求参数
+
+| 参数名称    |   是否必须      |    说明 |
+| ----------- |:---------------:| -----:|
+| username    |    是         |      用户名 |
+| password      |    是         |      登录密码 |
+
+## 返回示例
+```
+    {
+        "token": "xxxx.xxxxx.xxxxxx",
+        "user": {
+            "username": "测试账号",
+            "mobile": "123456789",
+            "roles": [
+                "admin"
+            ],
+            "permissions": [
+                "ACCOUNT_MANAGE",
+                "DEVICE_MANAGE",
+                "PRINTER_REGISTER",
+                "OPENAPI",
+                "PRINT",
+                "TEMPLATE_MANAGE",
+                "ORG_MANAGE"
+            ]
+        }
+    }
+```
+or
+```
+    {
+        "code": 40300
+    }
+```
+
+## 返回参数说明
+
+| 参数名称        |    说明 |
+| ----------- |:  -----:|
+| token    |        调用openapi的token |
+| user ->roles        |      用户角色(admin:管理员) |
+| user ->permissions        |      用户权限 |
+
 # 获取Token
 
 调用API时需要使用token或者请求头进行鉴权,token存在泄漏风险,外部调用务必使用https
