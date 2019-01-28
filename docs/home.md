@@ -17,6 +17,7 @@ SONMA API 文档
   - [术语](quick_start/quick_start.md?id=术语)
 - [接口列表](api/api.md)
   - [开放接口](api/open_api/open_api.md)
+    - [用户登录](api/open_api/open_api.md?id=用户登录)
     - [获取token](api/open_api/open_api.md?id=获取token)
     - [绑定打印机](api/open_api/open_api.md?id=绑定打印机)
     - [吊销token](api/open_api/open_api.md?id=吊销token)
