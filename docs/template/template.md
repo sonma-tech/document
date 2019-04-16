@@ -194,15 +194,15 @@
 ### 模板
 
 ```
-    <CB><%=shopName%></CB><BR>
-    <C><%=shopAddress%></C><BR>
-    单号:<%=:orderNumber | left_align:18%> 时间:<%=date%><BR>
-    客户:<%=:customerName | left_align:18 %> 员工:<%=staffName%><BR>
+    <CB><%=_data.shopName%></CB><BR>
+    <C><%=_data.shopAddress%></C><BR>
+    单号:<%=:_data.orderNumber | left_align:18%> 时间:<%=date%><BR>
+    客户:<%=:_data.customerName | left_align:18 %> 员工:<%=staffName%><BR>
     ------------------------------------------------<BR>
     <%=:'货号' | left_align:9 %><%=:'名称' | left_align:9 %><%=:'数量' | left_align:10 %><%=:'单价' | left_align:10 %><%=:'小计' | right_align:10 %><BR>
     ------------------------------------------------<BR>
-    <% for(var item in order)
-        {%><%=:order[item].ref | left_align:9 %><%=:order[item].name | left_align:9 %><%=:order[item].num | left_align:10 %><%=:order[item].price | left_align:10 %><%=:order[item].total | right_align:10 %><BR><%}
+    <% for(var item in _data.order)
+        {%><%=:_data.order[item].ref | left_align:9 %><%=:_data.order[item].name | left_align:9 %><%=:_data.order[item].num | left_align:10 %><%=:_data.order[item].price | left_align:10 %><%=:_data.order[item].total | right_align:10 %><BR><%}
     %>
     ------------------------------------------------<BR>
     数量:                                       2<BR>
