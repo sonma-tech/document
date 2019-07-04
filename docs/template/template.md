@@ -77,7 +77,41 @@
 | shift-x|  dimension   |  x轴偏移量 |
 | shift-y|  dimension   |  y轴偏移量 |
 
+### text 文本
 
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| width  |  dimension   |  打印区域宽度 |
+| height |  dimension   |  打印区域高度 |
+| font-size    |  dimension   |  决定文本字体高度,单位为px，默认10 |
+| font-name |  dimension   |  决定文本的字体,出厂预烧写的字体有:simsun.TTF,simhei.TTF,simkai.TTF，默认simsun.TTF |
+| align   |  dimension     |  决定文本的对齐方式，有效值有:left,center,right，默认center |
+
+### barcode 条码
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| width  |  dimension   |  打印区域宽度 |
+| height |  dimension   |  打印区域高度 |
+| x    |  dimension   |  决定元素左上角x轴位置 |
+| y |  dimension   |  决定元素左上角y轴位置 |
+| scale   |  dimension     |  决定条码宽度的放大系数，有效值为1-10的整数，默认10 |
+| readable-align   |  dimension     |  决定可读文字在条码中的位置，有效值为:none,left,center,right，默认center |
+| align   |  dimension     |  条码对齐方式，有效值有:left,center,right，默认center |
+| narrow   |  dimension     |  条码白色区域间隙，默认2dot |
+| wide   |  dimension     |  条码黑色区域宽度，默认2dot |
+
+### qrcode 二维码
+
+| 属性   |   类型      |     说明 |
+| ----------- |:---------------:| -----:|
+| width  |  dimension   |  打印区域宽度 |
+| height |  dimension   |  打印区域高度 |
+| x    |  dimension   |  决定元素左上角x轴位置 |
+| y |  dimension   |  决定元素左上角y轴位置 |
+| align   |  dimension     |  条码对齐方式，有效值有:left,center,right，默认center |
+| scale   |  dimension     |  决定条码宽度的放大系数，有效值为1-10的整数,默认10 |
+| level   |  dimension     |  二维码纠错级别,默认M |
 
 ### layout 布局节点
 
