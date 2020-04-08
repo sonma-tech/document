@@ -191,3 +191,8 @@
 
 串号
 打印机唯一编号
+
+# sdk地址
+
+php版：https://github.com/sonma-tech/demo-php
+java版：https://github.com/sonma-tech/demo-java
